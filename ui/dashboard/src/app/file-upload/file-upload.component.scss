@@ -1,0 +1,13 @@
+.navigationbar{
+    flex-direction: row;
+}
+li { cursor: pointer; }
+.form-space{
+    border: 2px aqua solid;
+    border-radius: 5px;
+}
+// .custom-file-input ~ .custom-file-label::after {
+//     content: "Choose File";
+//     background: #0e4da1;
+//     color: #FFF;
+//   }

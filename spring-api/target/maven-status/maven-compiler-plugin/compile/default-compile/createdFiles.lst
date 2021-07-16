@@ -1,0 +1,5 @@
+com/api/springMainApp/MainApiApp.class
+com/api/springMainApp/imageEntry/ImageEntry.class
+com/api/springMainApp/imagesRepository/ImagesRepository.class
+com/api/springMainApp/ImageService/ImageService.class
+com/api/springMainApp/imageController/ImageController.class

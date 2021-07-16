@@ -1,0 +1,47 @@
+
+
+<div style="width: 100vw !important; color: white;">
+    <div class="d-flex bg-dark w-100 flex-row-reverse">
+        <nav class="navbar navbar-expand-sm  navbar-dark navbar-inverse">
+            <div class="container-fluid">
+                <ul class="nav navbar-nav ">
+                    <li class="px-2 mx-2"  style="border: 1px lightblue solid; border-radius: 3px;" (click)="setForm('upload')"> <span > Image Upload</span> </li>
+                    <li class="px-2 mx-2"  style="border: 1px lightblue solid; border-radius: 3px;" (click)="setForm('check')"> <span > Image Management</span> </li>
+                </ul> 
+            </div>
+        </nav>
+    </div>
+</div>
+
+<div class="my-3 p-3 form-space">
+
+    <div *ngIf="action=='upload'">
+        <div  class="custom-file col-6 mx-3 ">
+            <input #imageInput type="file" class="custom-file-input"  accept="image/*" (change)="onFileChange($event)"  />
+            <label class="custom-file-label" style = "color: black">{{fileName}}</label>
+        </div>
+
+        <button class=" mt-2 btn btn-primary mx-2 col-3" (click) = "submitFile()"> Submit</button>
+        <div [hidden]='!activefile'>
+            <img id="preview" src="" class="" style="height: 700px; width:500px" alt="your image" />
+
+        </div>
+
+    </div>
+    <div *ngIf="action=='check'">
+        <select name="stateId" id="stateId" (change)="selectFile($event)" [(ngModel)]= "selectedFileKey"  class="form-control">
+            <option value="null" default="true" disabled>Select Image</option>
+            <option [value]="file.key" *ngFor="let file of fileListMap| keyvalue">{{ file.value }}</option>
+        </select>
+
+        <div class="row">
+            <button class=" mt-2 btn btn-secondary mx-2 col-3" (click) = "previewFile()"> Preview </button>
+            <button class=" mt-2 btn btn-danger mx-2 col-3" (click) = "deleteFile()"> Delete  </button>
+        </div> 
+        <div *ngIf="retrievedImage" class="mt-2 " style="height: 700px; width:500px">
+            <img [src]="retrievedImage">
+        </div>
+    </div>
+    <p>file-upload works! {{action}}</p>
+</div>
+
